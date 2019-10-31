@@ -1,7 +1,7 @@
 
 ![Figure 1](https://www.rabbitmq.com/img/tutorials/python-one-overall.png "Figure 1")
 
-# Installation
+# Installation :fire:
 
 brew install python
 
@@ -9,7 +9,7 @@ brew install rabbitmq
 
 pip3 install pika --upgrade
 
-# Edit vi .bash_profile
+# Edit vi .bash_profile :pencil:
 export HOMEBREW_RABBITMQ=/usr/local/Cellar/rabbitmq/3.8.0/sbin/
 export PATH=$PATH:$HOMEBREW_RABBITMQ
 
@@ -22,17 +22,18 @@ rabbitmq
 
 http://localhost:15672
 
-# Commands
+# Commands :computer:
 
 - List queues: sudo rabbitmqctl list_queues
 - python3 send.py
 - python3 receive.py
 
-# Kafka Connector :tiger:
+# Kafka Connector :arrows_counterclockwise:
 
 Creating a new conector
 
 - curl -s -X POST -H 'Content-Type: application/json' --data @register-rabbitmq-connect.json http://localhost:9092/connectors
+
 
 
 Updating an existing connector
@@ -41,13 +42,29 @@ Updating an existing connector
 
 
 
+
 Starting the connector
+
 
 - curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:9092/connectors/ -d @register-rabbitmq-connect.json
 
+- curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:9092/connectors/RabbitMQSourceConnector1/config -d @register-rabbitmq-connect.json
+
+Verify if connector is installed
+
+- curl -sS localhost:9092/connector-plugins | jq .[].class | grep RabbitMQSourceConnector
 
 
-./kafka-avro-console-consumer --bootstrap-server localhost:9092 --topic rabbitmq_test
+
+# Setting Confluent :eight_spoked_asterisk:
+
+
+- export CONFLUENT_HOME=/Users/josejoaquinbarruecoblanco/BigData/confluent-5.3.1
+- export PATH=/Users/josejoaquinbarruecoblanco/BigData/confluent-5.3.1/bin
+
+- confluent local start --path /Users/josejoaquinbarruecoblanco/BigData/confluent-5.3.1
+
+- confluent local stop
 
 
 # References :book:
