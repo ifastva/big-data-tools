@@ -24,7 +24,7 @@ http://localhost:15672
 
 # Commands :computer:
 
-- List queues: sudo rabbitmqctl list_queues
+- List queues: rabbitmqctl list_queues
 - python3 send.py
 - python3 receive.py
 
@@ -32,28 +32,29 @@ http://localhost:15672
 
 Creating a new conector
 
-- curl -s -X POST -H 'Content-Type: application/json' --data @register-rabbitmq-connect.json http://localhost:9092/connectors
+- curl -s -X POST -H 'Content-Type: application/json' --data @register-rabbitmq-connect.json http://localhost:8083/connectors
 
 
 
 Updating an existing connector
 
-- curl -s -X PUT -H 'Content-Type: application/json' --data @register-rabbitmq-connect.json http://localhost:9092/connectors/RabbitMQSourceConnector1/config
-
-
+- curl -s -X PUT -H 'Content-Type: application/json' --data @register-rabbitmq-connect.json http://localhost:8083/connectors/RabbitMQSourceConnector1/config
 
 
 Starting the connector
 
 
-- curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:9092/connectors/ -d @register-rabbitmq-connect.json
+- curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-rabbitmq-connect.json
 
-- curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:9092/connectors/RabbitMQSourceConnector1/config -d @register-rabbitmq-connect.json
 
 Verify if connector is installed
 
 - curl -sS localhost:9092/connector-plugins | jq .[].class | grep RabbitMQSourceConnector
 
+Delete existing connector
+
+- curl -X DELETE localhost:8083/connectors/RabbitMQSourceConnector1
+- curl -X DELETE localhost:8083/connectors/hdfs-sink
 
 
 # Setting Confluent :eight_spoked_asterisk:

@@ -3,10 +3,13 @@
   "config" : {
    "connector.class" : "io.confluent.connect.rabbitmq.RabbitMQSourceConnector",
    "tasks.max" : "1",
-   "kafka.topic" : "rabbitmq_test",
-   "rabbitmq.queue" : "task_queue",
+   "kafka.topic" : "rabbitmqtest3",
+   "rabbitmq.queue" : "taskqueue",
     "rabbitmq.host" : "localhost",
     "rabbitmq.username" : "guest",
-    "rabbitmq.password" : "guest"
+    "rabbitmq.password" : "guest",
+    "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
+    "internal.value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter"
+
   }
 }

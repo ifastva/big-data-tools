@@ -6,15 +6,19 @@ connection = pika.BlockingConnection(
     pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
 
-channel.queue_declare(queue='task_queue', durable=True)
+channel.queue_declare(queue='taskqueue2')
 
-message = ' '.join(sys.argv[1:]) or "Hello World!"
+msgBody =  'HOLA'
+
+properties = pika.BasicProperties(content_type='application/json', delivery_mode=1, priority=1, content_encoding='utf-8')
+
 channel.basic_publish(
     exchange='',
-    routing_key='task_queue',
-    body=message,
-    properties=pika.BasicProperties(
-        delivery_mode=2,  # make message persistent
-    ))
-print(" [x] Sent %r" % message)
+    routing_key='taskqueue2',
+    body=msgBody,
+    properties= properties
+    )
+
+
+print(" [x] Sent %r" % msgBody)
 connection.close()
