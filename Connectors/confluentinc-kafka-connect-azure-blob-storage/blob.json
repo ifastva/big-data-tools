@@ -1,0 +1,23 @@
+{
+ "name": "blob-sink",
+ "config": {
+   "connector.class": "io.confluent.connect.azure.blob.AzureBlobStorageSinkConnector",
+   "tasks.max": "1",
+   "topics": "rabbitmqtest3",
+   "flush.size": "3",
+   "azblob.account.name": "testingcontainergen2",
+   "azblob.account.key": "QvRGLy25X1163fCTdtGOC4KLzSwfu2iYfJkvVWyaoYZNfYTidhQQzikT2gg7s1vEBbzOAe/9X2fXWwVLqNcl+A==",
+   "azblob.container.name": "testingcontainergen2",
+   "format.class": "io.confluent.connect.azure.blob.format.bytearray.ByteArrayFormat",
+   "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
+   "confluent.topic.bootstrap.servers": "localhost:9092",
+   "confluent.topic.replication.factor": "1",
+   "partitioner.class" : "io.confluent.connect.storage.partitioner.TimeBasedPartitioner",
+   "path.format" : "'year'=YYYY/'month'=MM/'day'=dd/'hour'=HH",
+   "partition.duration.ms" : "6000",
+   "locale" : "en-GB",
+   "timezone" : "Europe/Paris",
+   "timestamp.extractor": "Wallclock"
+
+          }
+}
