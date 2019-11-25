@@ -71,7 +71,7 @@ Delete existing connector
 - confluent local stop
 
 
-# References :book:
+# References :book: :
 
 - https://www.dyclassroom.com/howto-mac/how-to-install-rabbitmq-on-mac-using-homebrew
 - https://www.rabbitmq.com/tutorials/tutorial-two-python.html
