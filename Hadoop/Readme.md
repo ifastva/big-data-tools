@@ -86,6 +86,8 @@ LOAD DATA LOCAL INPATH 'hdfs://topics/rabbitmqtest3/partition=0/' INTO TABLE sw6
 cc
 # Connector
 
+
+
 format.class
 The format class to use when writing data to the store. Format classes implement the io.confluent.connect.storage.format.Format interface.
 

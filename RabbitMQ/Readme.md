@@ -46,6 +46,8 @@ Starting the connector
 
 - curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @register-rabbitmq-connect.json
 
+curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://localhost:8083/connectors/ -d @blob.json
+
 
 Verify if connector is installed
 
@@ -55,6 +57,7 @@ Delete existing connector
 
 - curl -X DELETE localhost:8083/connectors/RabbitMQSourceConnector1
 - curl -X DELETE localhost:8083/connectors/hdfs-sink
+- curl -X DELETE localhost:8083/connectors/blob-sink
 
 
 # Setting Confluent :eight_spoked_asterisk:
