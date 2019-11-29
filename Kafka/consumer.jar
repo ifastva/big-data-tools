@@ -1,0 +1,15 @@
+Properties props = new Properties();
+props.put("bootstrap.servers", "localhost:9092");
+props.put("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+props.put("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+
+KafkaConsumer<String, byte[]> consumer = new KafkaConsumer <String, byte[]>(props);
+
+consumer.subscribe(Arrays.asList(topic)); 1
+
+
+while (true) {
+    ConsumerRecords<String, byte[]> records = consumer.poll(100);
+    for (ConsumerRecord<String, byte[]> record : records)
+        System.out.printf("offset = %d, key = %s, value = %s\n", record.offset(), record.key(), record.value());
+}

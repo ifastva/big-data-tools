@@ -98,6 +98,10 @@ These classes are available by default:
 - io.confluent.connect.hdfs.parquet.ParquetFormat
 - io.confluent.connect.hdfs.string.StringFormat
 
+io.confluent.kafka.serializers.KafkaAvroDeserializer
+"value.converter.schema.registry.url": "http://localhost:8081",
+"key.converter.schema.registry.url": "http://localhost:8081",
+
 # Useful links
 
 - https://gist.github.com/viecode09/ad56b09bea4da59b4240d45b666321cf
