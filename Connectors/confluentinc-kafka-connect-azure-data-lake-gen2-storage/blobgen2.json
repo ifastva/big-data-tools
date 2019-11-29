@@ -9,8 +9,12 @@
    "azure.datalake.gen2.client.key":"c9e34b82-6b3d-46ef-ad8b-5893cea48ed8",
    "azure.datalake.gen2.account.name":"sw66ingesteddataaccount",
    "azure.datalake.gen2.token.endpoint":"https://login.microsoftonline.com/db4cfc4c-4ec7-41df-8bfe-b9f4983df1dc/oauth2/token",
-   "format.class":"io.confluent.connect.azure.storage.format.bytearray.ByteArrayFormat",
-   "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
+   "azure.datalake.gen2.container.name":"sw66ingesteddataaccountgen2",
+   "format.class":"io.confluent.connect.azure.storage.format.json.JsonFormat",
+   "value.converter":"org.apache.kafka.connect.json.jsonConverter",
+   "internal.value.converter": "org.apache.kafka.connect.json.JsonConverter",
+   "value.converter.schemas.enable":"false",
+   "topics.dir":"sw66jsoningest",
    "confluent.topic.bootstrap.servers":"localhost:9092",
    "confluent.topic.replication.factor":"1",
    "partitioner.class" : "io.confluent.connect.storage.partitioner.TimeBasedPartitioner",
@@ -19,6 +23,5 @@
    "locale" : "en-GB",
    "timezone" : "Europe/Paris",
    "timestamp.extractor": "Wallclock"
-
           }
 }
